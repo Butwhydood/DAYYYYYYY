@@ -978,191 +978,67 @@ function loadLibrary() {
         library = { sections: [], books: [], backgroundImage: null };
     }
 
-    // Ensure "My First Collection" section exists
+    // Ensure demo section exists
     let section = library.sections.find(s => s.name === 'My First Collection');
     if (!section) {
-        const sectionId = Date.now();
         section = {
-            id: sectionId,
+            id: Date.now(),
             name: 'My First Collection',
             color: '#f0b27a',
             icon: '📚'
         };
         library.sections.push(section);
-
-        // Add 18 example books (explicit style)
-// Add 18 example books (explicit style)
-library.books.push(
-    {
-        id: section.id + 1,
-        sectionId: section.id,
-        title: 'Welcome to Your Library',
-        author: 'Library Creator',
-        content: '<p>Hello there UWAU.</p>',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-    },
-    {
-        id: section.id + 2,
-        sectionId: section.id,
-        title: 'Getting Started',
-        author: 'Library Guide',
-        content: '<p>Here you can write stories, notes, or journals.</p>',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-    },
-    {
-        id: section.id + 3,
-        sectionId: section.id,
-        title: 'Example Story',
-        author: 'Demo Author',
-        content: '<p>Once upon a time in a demo library...</p>',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-    },
-    {
-        id: section.id + 4,
-        sectionId: section.id,
-        title: 'Tips & Tricks',
-        author: 'Library Helper',
-        content: '<p>Right-click anywhere to see your options and customize your library.</p>',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-    },
-    {
-        id: section.id + 5,
-        sectionId: section.id,
-        title: 'Enjoy Writing!',
-        author: 'Library Creator',
-        content: '<p>Start adding your own books and sections to make this library truly yours.</p>',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-    },
-    {
-        id: section.id + 6,
-        sectionId: section.id,
-        title: 'Organizing Sections',
-        author: 'Library Guide',
-        content: '<p>Use sections to sort your books by theme, topic, or style.</p>',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-    },
-    {
-        id: section.id + 7,
-        sectionId: section.id,
-        title: 'Background Customization',
-        author: 'Library Helper',
-        content: '<p>You can change the background to make your library feel personal.</p>',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-    },
-    {
-        id: section.id + 8,
-        sectionId: section.id,
-        title: 'Creating Stories',
-        author: 'Story Weaver',
-        content: '<p>Every great adventure begins with a single word…</p>',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-    },
-    {
-        id: section.id + 9,
-        sectionId: section.id,
-        title: 'Daily Journaling',
-        author: 'Mindful Writer',
-        content: '<p>Use this space to reflect on your day and capture your thoughts.</p>',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-    },
-    {
-        id: section.id + 10,
-        sectionId: section.id,
-        title: 'Poetry Corner',
-        author: 'Dreamer',
-        content: '<p>Words that rhyme, thoughts that shine — let your heart speak.</p>',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-    },
-    {
-        id: section.id + 11,
-        sectionId: section.id,
-        title: 'Study Notes',
-        author: 'Student',
-        content: '<p>Turn this library into your own digital notebook.</p>',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-    },
-    {
-        id: section.id + 12,
-        sectionId: section.id,
-        title: 'Creative Writing',
-        author: 'Imaginator',
-        content: '<p>Experiment with new ideas, characters, and worlds.</p>',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-    },
-    {
-        id: section.id + 13,
-        sectionId: section.id,
-        title: 'Library Rules',
-        author: 'System',
-        content: '<p>You can edit or delete these demo books anytime.</p>',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-    },
-    {
-        id: section.id + 14,
-        sectionId: section.id,
-        title: 'Your First Draft',
-        author: 'Coach',
-        content: '<p>Don’t worry about being perfect. Just write!</p>',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-    },
-    {
-        id: section.id + 15,
-        sectionId: section.id,
-        title: 'Inspirations',
-        author: 'Muse',
-        content: '<p>Keep a list of quotes, thoughts, and sparks of imagination.</p>',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-    },
-    {
-        id: section.id + 16,
-        sectionId: section.id,
-        title: 'Reflection Log',
-        author: 'Thinker',
-        content: '<p>Look back on your progress and growth over time.</p>',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-    },
-    {
-        id: section.id + 17,
-        sectionId: section.id,
-        title: 'Dream Journal',
-        author: 'Sleeper',
-        content: '<p>Write down your dreams the moment you wake up.</p>',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-    },
-    {
-        id: section.id + 18,
-        sectionId: section.id,
-        title: 'Final Words',
-        author: 'Library Creator',
-        content: '<p>Now it’s your turn. Start building your own collection!</p>',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
     }
-);
 
-    }
+    // Define the 18 demo books you want to appear
+    const demoBooks = [
+        { title: 'Welcome to Your Library', author: 'Library Creator', content: '<p><strong>Hello!</strong></p><p>This is your first book in the Digital Library.</p>' },
+        { title: 'Getting Started', author: 'Library Guide', content: '<p>Here you can write stories, notes, or journals.</p>' },
+        { title: 'Example Story', author: 'Demo Author', content: '<p>Once upon a time in a demo library...</p>' },
+        { title: 'Tips & Tricks', author: 'Library Helper', content: '<p>Right-click anywhere to see your options and customize your library.</p>' },
+        { title: 'Enjoy Writing!', author: 'Library Creator', content: '<p>Start adding your own books and sections to make this library truly yours.</p>' },
+        { title: 'Organizing Sections', author: 'Library Guide', content: '<p>Use sections to sort your books by theme, topic, or style.</p>' },
+        { title: 'Background Customization', author: 'Library Helper', content: '<p>You can change the background to make your library feel personal.</p>' },
+        { title: 'Creating Stories', author: 'Story Weaver', content: '<p>Every great adventure begins with a single word…</p>' },
+        { title: 'Daily Journaling', author: 'Mindful Writer', content: '<p>Use this space to reflect on your day and capture your thoughts.</p>' },
+        { title: 'Poetry Corner', author: 'Dreamer', content: '<p>Words that rhyme, thoughts that shine — let your heart speak.</p>' },
+        { title: 'Study Notes', author: 'Student', content: '<p>Turn this library into your own digital notebook.</p>' },
+        { title: 'Creative Writing', author: 'Imaginator', content: '<p>Experiment with new ideas, characters, and worlds.</p>' },
+        { title: 'Library Rules', author: 'System', content: '<p>You can edit or delete these demo books anytime.</p>' },
+        { title: 'Your First Draft', author: 'Coach', content: '<p>Don’t worry about being perfect. Just write!</p>' },
+        { title: 'Inspirations', author: 'Muse', content: '<p>Keep a list of quotes, thoughts, and sparks of imagination.</p>' },
+        { title: 'Reflection Log', author: 'Thinker', content: '<p>Look back on your progress and growth over time.</p>' },
+        { title: 'Dream Journal', author: 'Sleeper', content: '<p>Write down your dreams the moment you wake up.</p>' },
+        { title: 'Final Words', author: 'Library Creator', content: '<p>Now it’s your turn. Start building your own collection!</p>' }
+    ];
+
+    // Sync demo books (update or add)
+    demoBooks.forEach((demo, i) => {
+        let book = library.books.find(b => b.sectionId === section.id && b.title === demo.title);
+        if (!book) {
+            // If missing, add it
+            library.books.push({
+                id: section.id + i + 1,
+                sectionId: section.id,
+                title: demo.title,
+                author: demo.author,
+                content: demo.content,
+                createdAt: new Date().toISOString(),
+                updatedAt: new Date().toISOString()
+            });
+        } else {
+            // If exists, update with the latest text from GitHub code
+            book.author = demo.author;
+            book.content = demo.content;
+            book.updatedAt = new Date().toISOString();
+        }
+    });
 
     renderSections();
     renderHome();
     saveLibrary();
 }
+
         
         function saveLibrary() {
             localStorage.setItem('digitalLibrary', JSON.stringify(library));
@@ -1655,6 +1531,7 @@ window.addEventListener('DOMContentLoaded', () => {
 </ul>
 </body>
 </html> 
+
 
 
 
