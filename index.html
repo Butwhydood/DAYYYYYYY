@@ -968,27 +968,18 @@
         });
         
 function loadLibrary() {
-    const saved = localStorage.getItem('digitalLibrary');
-    if (saved) {
-        library = JSON.parse(saved);
-        if (library.backgroundImage) {
-            document.getElementById('bgOverlay').style.backgroundImage = `url(${library.backgroundImage})`;
-        }
-    } else {
-        library = { sections: [], books: [], backgroundImage: null };
-    }
+    // Always start clean
+    library = { sections: [], books: [], backgroundImage: null };
 
-    // Ensure demo section exists
-    let section = library.sections.find(s => s.name === 'My First Collection');
-    if (!section) {
-        section = {
-            id: Date.now(),
-            name: 'THE EIGHTEEEEEN',
-            color: '#f0b27a',
-            icon: '📚'
-        };
-        library.sections.push(section);
-    }
+    // Create demo section
+    const sectionId = Date.now();
+    const section = {
+        id: sectionId,
+        name: 'THE EIGHTEEEEEN',
+        color: '#f0b27a',
+        icon: '📚'
+    };
+    library.sections.push(section);
 
     // Define the 18 demo books you want to appear
     const demoBooks = [
@@ -1012,31 +1003,21 @@ function loadLibrary() {
         { title: 'Now were 18', author: 'Baby', content: '<p>This is the 18th Notes. Now youre 18 and I am 18. Weve come a long way my love. 18 months together as well coincidentally. A very cool coincidence if you were to ask me HAHAHAHAHA. This note shall be deidcated to ultimatums for the future. We shall see and experience more fun things from here on and we shall be together more and more and more from here on. You and I will be forever because that is a fact and that is a very awesome fact that will remain true for all of eternity. You are the prettiest lady in the universe and that remains to be an unbreakable fact. It shall never be disproven and will never be a false thing. Love is not false. Happy Birthday, Baby. I love you x infinity. MWAH MWAH. KISS KISS, BITE BITE, HUG HUG, CUDDLE CUDDLE, SMOOCH SMOOCH, TICKLE TICKLE, SNUGGLE SNUGGLE. UWAUUUUU I LOVE YOUU X INFITYYYYYY.</p>' }
     ];
 
-    // Sync demo books (update or add)
+    // Add them directly
     demoBooks.forEach((demo, i) => {
-        let book = library.books.find(b => b.sectionId === section.id && b.title === demo.title);
-        if (!book) {
-            // If missing, add it
-            library.books.push({
-                id: section.id + i + 1,
-                sectionId: section.id,
-                title: demo.title,
-                author: demo.author,
-                content: demo.content,
-                createdAt: new Date().toISOString(),
-                updatedAt: new Date().toISOString()
-            });
-        } else {
-            // If exists, update with the latest text from GitHub code
-            book.author = demo.author;
-            book.content = demo.content;
-            book.updatedAt = new Date().toISOString();
-        }
+        library.books.push({
+            id: sectionId + i + 1,
+            sectionId: sectionId,
+            title: demo.title,
+            author: demo.author,
+            content: demo.content,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
+        });
     });
 
     renderSections();
     renderHome();
-    saveLibrary();
 }
 
         
@@ -1531,6 +1512,7 @@ window.addEventListener('DOMContentLoaded', () => {
 </ul>
 </body>
 </html> 
+
 
 
 
